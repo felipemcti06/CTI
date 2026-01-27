@@ -1,0 +1,172 @@
+{
+	"@type":"Hierarchy",
+	"Name":"ALL.D.Accounts",
+	"Elements":
+	[
+		{
+			"Name":"Reference Price [$/ton]",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Local Market Sales Volume [kt]",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Export Market Sales Volume [kt]",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Company Cash Cost",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Third Part Sales Volume [kt]",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cash Cost per Unit",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ponderation Volume",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Local Market Price Premium [$/ton]",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Export Market Price Premium [$/ton]",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Fixed Costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Operating Expenses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Third Party Sales Volume [kt]",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Final Variable Sales Expenses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Variable Costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Depreciation / amortization / depletion - Corporate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Accrual of Interest (LC)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IOF - Cash",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CPMF - Cash",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Taxes (Except Income Tax) - Cash",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bank Expenses - Cash",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Financial Expenses- Cash",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Financial Revenues",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monetary Variation (LC)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Equity Pick-Up (Consolidation)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Non Operating - Cash (Before Inc Tax)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Non Operating (Other - Cash Flow)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Non Operating (Without Cash Effect)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Participation in Minority BU",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Goodwill Amortization",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Participation in Results (Bank)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Own Capital interest",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Additions/Low IT Income Statement",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Interest Expenses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Foreign Exchange Cash Flow Impact",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Funding (LC)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Principal Amortization (LC)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Interest Amortization (LC)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Variation (LC)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Variation by buy/sale of company (LC)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Foreign Exchange Variation (LC)",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}
