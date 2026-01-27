@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"ALL.M.002.Uploads​_Status",
+	"Hierarchies@Code.links":
+	[
+		"ALL.M.002.Uploads​_Status.hierarchies/ALL.M.002.Uploads​_Status.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('ALL.M.002.Uploads​_Status')/Hierarchies('ALL.M.002.Uploads​_Status')"
+	}
+}

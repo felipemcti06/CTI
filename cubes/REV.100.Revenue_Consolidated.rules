@@ -1,0 +1,201 @@
+# =============
+  SKIPCHECK;
+  FEEDSTRINGS;
+# =============
+
+# --------------------------------------------------------------------------------------------
+# Name Define versões calculadas
+# Desc A partir dessa regra só calcula para versões dinâmicas
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+[]=IF(ELISANC( 'ALL.D.Version', 'Dynamic Versions', !ALL.D.Version ) <> 0
+  ,CONTINUE
+  ,STET
+  ); 
+
+
+# --------------------------------------------------------------------------------------------
+# Name: Reference Price [$/ton]
+# Desc: Reference Price [$/ton]
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+  ['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Reference Price [$/ton]​' , 'ALL.D.Market':'ALL.D.Market':'Domestic'] = N:
+  DB( 'STG.100.DataBase_Uploads',
+      !ALL.D.Year,
+      !ALL.D.Month,
+      !ALL.D.Version,
+     !ALL.D.Currency,
+     !ALL.D.Region,
+     !ALL.D.Products,
+     'Reference Price [$/ton]',
+     'ALL.D.Account_Line':'Total Accounts Line',
+     'STG.M.100.DataBaseUploads':'Value​' 
+     );
+
+
+# --------------------------------------------------------------------------------------------
+# Name:'Sales Volume [kt]
+# Desc: 'Sales Volume [kt]
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+  ['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Sales Volume [kt]​' , 'ALL.D.Market':'ALL.D.Market':'Domestic'] = N:
+  DB( 'STG.100.DataBase_Uploads',
+      !ALL.D.Year,
+      !ALL.D.Month,
+      !ALL.D.Version,
+     !ALL.D.Currency,
+     !ALL.D.Region,
+     !ALL.D.Products,
+     'Local Market Sales Volume [kt]',
+     'ALL.D.Account_Line':'Total Accounts Line',
+     'STG.M.100.DataBaseUploads':'Value​' 
+     );
+
+
+  ['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Sales Volume [kt]​' , 'ALL.D.Market':'ALL.D.Market':'Export'] = N:
+  DB( 'STG.100.DataBase_Uploads',
+      !ALL.D.Year,
+      !ALL.D.Month,
+      !ALL.D.Version,
+     !ALL.D.Currency,
+     !ALL.D.Region,
+     !ALL.D.Products,
+     'Export Market Sales Volume [kt]',
+     'ALL.D.Account_Line':'Total Accounts Line',
+     'STG.M.100.DataBaseUploads':'Value​' 
+     );
+
+# --------------------------------------------------------------------------------------------
+# Name:Third Part Sales Volume [kt]
+# Desc: Third Part Sales Volume [kt]
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+  ['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Third Part Sales Volume [kt]' , 'ALL.D.Market':'ALL.D.Market':'Domestic'] = N:
+  DB( 'STG.100.DataBase_Uploads',
+      !ALL.D.Year,
+      !ALL.D.Month,
+      !ALL.D.Version,
+     !ALL.D.Currency,
+     !ALL.D.Region,
+     !ALL.D.Products,
+     'Third Part Sales Volume [kt]',
+     'ALL.D.Account_Line':'Total Accounts Line',
+     'STG.M.100.DataBaseUploads':'Value​' 
+     );
+# --------------------------------------------------------------------------------------------
+# Name:Price Premium [$/ton]​
+# Desc: Price Premium [$/ton]​
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+  ['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Price Premium [$/ton]​' , 'ALL.D.Market':'ALL.D.Market':'Domestic'] = N:
+  DB( 'STG.100.DataBase_Uploads',
+      !ALL.D.Year,
+      !ALL.D.Month,
+      !ALL.D.Version,
+     !ALL.D.Currency,
+     !ALL.D.Region,
+     !ALL.D.Products,
+     'Local Market Price Premium [$/ton]',
+     'ALL.D.Account_Line':'Total Accounts Line',
+     'STG.M.100.DataBaseUploads':'Value​' 
+     );
+
+  ['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Price Premium [$/ton]​' , 'ALL.D.Market':'ALL.D.Market':'Export'] = N:
+  DB( 'STG.100.DataBase_Uploads',
+      !ALL.D.Year,
+      !ALL.D.Month,
+      !ALL.D.Version,
+     !ALL.D.Currency,
+     !ALL.D.Region,
+     !ALL.D.Products,
+     'Export Market Price Premium [$/ton]',
+     'ALL.D.Account_Line':'Total Accounts Line',
+     'STG.M.100.DataBaseUploads':'Value​' 
+     );
+
+# --------------------------------------------------------------------------------------------
+# Name:Net Revenue [$MM]​
+# Desc: Net Revenue [$MM]​
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+  ['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Net Revenue [$MM]​' ] = N:
+(['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Sales Volume [kt]​'] 
+    *
+(  ['REV.M.100.Revenue_Consolidated': 'REV.M.100.Revenue_Consolidated':'Reference Price [$/ton]​']
+    +
+  ['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Price Premium [$/ton]​'])
+   \1000 );
+
+
+# --------------------------------------------------------------------------------------------
+# Name:Net Revenue [$MM]​
+# Desc: Net Revenue [$MM]​
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+  ['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Gross Revenue [$MM]​' ] = N:
+ ['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Net Revenue [$MM]​' ] *(1+
+   DB( 'ALL.015.Region_Assumptions', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Region, '% Operational Tax​', 'Value' )
+                                                                                            
+                                                                                            );
+
+# --------------------------------------------------------------------------------------------
+#
+#                      			INICIO DO BLOCO DE FEEDERS
+#
+# --------------------------------------------------------------------------------------------
+
+# =============
+  FEEDERS;
+# =============
+
+
+# --------------------------------------------------------------------------------------------
+# Name:Net Revenue [$MM]​
+# Desc: Net Revenue [$MM]​
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+ 
+['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Sales Volume [kt]​'
+]=> ['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Net Revenue [$MM]​' ] ; 
+
+
+# --------------------------------------------------------------------------------------------
+# Name:Gross Revenue [$MM]​'
+# Desc:Gross Revenue [$MM]​'
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+ 
+['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Sales Volume [kt]​'
+]=> ['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Gross Revenue [$MM]​' ] ; 
+
+# --------------------------------------------------------------------------------------------
+#                      			BLOCO DE FEEDERS EXTERNOS
+# --------------------------------------------------------------------------------------------
+
+
+# --------------------------------------------------------------------------------------------
+# Name: Gross Revenue [$MM]​
+# Desc:Gross Revenue [$MM]​
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Gross Revenue [$MM]​','ALL.D.Market':'ALL.D.Market':'Total Market'
+]=>DB( 'DFS.100.Profit_and_Loss', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, !ALL.D.Products, 'Gross Revenue', 'Value' );
+
+# --------------------------------------------------------------------------------------------
+# Name: Net Revenue [$MM]​'
+# Desc:Net Revenue [$MM]​'
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+['REV.M.100.Revenue_Consolidated':'REV.M.100.Revenue_Consolidated':'Net Revenue [$MM]​','ALL.D.Market':'ALL.D.Market':'Total Market'
+]=>DB( 'DFS.100.Profit_and_Loss', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, !ALL.D.Products, 'Net Revenue', 'Value' );

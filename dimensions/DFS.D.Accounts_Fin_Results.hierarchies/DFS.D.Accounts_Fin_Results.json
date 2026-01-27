@@ -1,0 +1,272 @@
+{
+	"@type":"Hierarchy",
+	"Name":"DFS.D.Accounts_Fin_Results",
+	"Elements":
+	[
+		{
+			"Name":"FINANCIAL RESULTS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Foreign Exchange Variation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Financial Expenses",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Financial Expenses - Cash",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Total Financial Revenues",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hedge Results",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Financial Revenues",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Accrual of Interest (LC)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Interest Expenses",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Interest Expenses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Foreign Exchange Variation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Foreign Exchange Variation Over Cash",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monetary Variation (LC)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Foreign Exchange Variation (LC)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hedge Accounting International investments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IOF - Cash",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CPMF - Cash",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Taxes (Except Income Tax) - Cash",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bank Expenses - Cash",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Financial Expenses- Cash",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Financial Expenses - Non Cash",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Financial Revenues",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Financial Revenues Adjustment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mutual Net Results",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Balance Variation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Liquidation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hedge Accounting - Derivatives",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Hedge Results",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Other Financial Revenues - (Non Cash)",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"FINANCIAL RESULTS",
+			"ComponentName":"Total Interest Expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"FINANCIAL RESULTS",
+			"ComponentName":"Total Foreign Exchange Variation",
+			"Weight":1
+		},
+		{
+			"ParentName":"FINANCIAL RESULTS",
+			"ComponentName":"Financial Expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"FINANCIAL RESULTS",
+			"ComponentName":"Total Financial Revenues",
+			"Weight":1
+		},
+		{
+			"ParentName":"FINANCIAL RESULTS",
+			"ComponentName":"Total Hedge Results",
+			"Weight":1
+		},
+		{
+			"ParentName":"FINANCIAL RESULTS",
+			"ComponentName":"Other Financial Revenues",
+			"Weight":1
+		},
+		{
+			"ParentName":"Financial Expenses",
+			"ComponentName":"Financial Expenses - Cash",
+			"Weight":1
+		},
+		{
+			"ParentName":"Financial Expenses",
+			"ComponentName":"Financial Expenses - Non Cash",
+			"Weight":1
+		},
+		{
+			"ParentName":"Financial Expenses - Cash",
+			"ComponentName":"IOF - Cash",
+			"Weight":1
+		},
+		{
+			"ParentName":"Financial Expenses - Cash",
+			"ComponentName":"CPMF - Cash",
+			"Weight":1
+		},
+		{
+			"ParentName":"Financial Expenses - Cash",
+			"ComponentName":"Other Taxes (Except Income Tax) - Cash",
+			"Weight":1
+		},
+		{
+			"ParentName":"Financial Expenses - Cash",
+			"ComponentName":"Bank Expenses - Cash",
+			"Weight":1
+		},
+		{
+			"ParentName":"Financial Expenses - Cash",
+			"ComponentName":"Other Financial Expenses- Cash",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Financial Revenues",
+			"ComponentName":"Financial Revenues",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Financial Revenues",
+			"ComponentName":"Other Financial Revenues",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Financial Revenues",
+			"ComponentName":"Financial Revenues Adjustment",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Financial Revenues",
+			"ComponentName":"Mutual Net Results",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Financial Revenues",
+			"ComponentName":"Other Financial Revenues - (Non Cash)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Interest Expenses",
+			"ComponentName":"Accrual of Interest (LC)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Interest Expenses",
+			"ComponentName":"Interest Expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Foreign Exchange Variation",
+			"ComponentName":"Foreign Exchange Variation Over Cash",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Foreign Exchange Variation",
+			"ComponentName":"Monetary Variation (LC)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Foreign Exchange Variation",
+			"ComponentName":"Foreign Exchange Variation (LC)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Foreign Exchange Variation",
+			"ComponentName":"Hedge Accounting International investments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Foreign Exchange Variation",
+			"ComponentName":"Foreign Exchange Variation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Hedge Results",
+			"ComponentName":"Balance Variation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Hedge Results",
+			"ComponentName":"Liquidation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Hedge Results",
+			"ComponentName":"Hedge Accounting - Derivatives",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Hedge Results",
+			"ComponentName":"Hedge Results",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

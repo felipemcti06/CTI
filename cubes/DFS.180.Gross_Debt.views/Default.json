@@ -1,0 +1,45 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"IsAutocalculate" : true,
+	"IsDeferComputeOnLeafDataEntry" : false,
+	"IsSuppressComputeOnOpen" : false,
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[ALL.D.Currency].[ALL.D.Currency]" : 
+			{
+				"Expression" : "{Descendants({[ALL.D.Currency].[ALL.D.Currency].[BRL]},1, SELF_AND_BEFORE)}"
+			},
+			"[ALL.D.Month].[ALL.D.Month]" : 
+			{
+				"Expression" : "{[ALL.D.Month].[ALL.D.Month].MEMBERS}"
+			},
+			"[ALL.D.Region].[ALL.D.Region]" : 
+			{
+				"Expression" : "{Descendants({[ALL.D.Region].[ALL.D.Region].[VCBR]},1, SELF_AND_BEFORE)}"
+			},
+			"[ALL.D.Version].[ALL.D.Version]" : 
+			{
+				"Expression" : "{Descendants({[ALL.D.Version].[ALL.D.Version].[T3]},1, SELF_AND_BEFORE)}"
+			},
+			"[ALL.D.Year].[ALL.D.Year]" : 
+			{
+				"Expression" : "{Descendants({[ALL.D.Year].[ALL.D.Year].[2025]},1, SELF_AND_BEFORE)}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[ALL.D.Currency].[ALL.D.Currency]" : false,
+			"[ALL.D.Month].[ALL.D.Month]" : false,
+			"[ALL.D.Region].[ALL.D.Region]" : false,
+			"[ALL.D.Version].[ALL.D.Version]" : false,
+			"[ALL.D.Year].[ALL.D.Year]" : false,
+			"[DFS.D.Accounts_Debt].[DFS.D.Accounts_Debt]" : false,
+			"[DFS.M.180.Gross_Debt].[DFS.M.180.Gross_Debt]" : false
+		}
+	}
+}

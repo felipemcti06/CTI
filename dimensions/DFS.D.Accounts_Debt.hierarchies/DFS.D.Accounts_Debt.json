@@ -1,0 +1,96 @@
+{
+	"@type":"Hierarchy",
+	"Name":"DFS.D.Accounts_Debt",
+	"Elements":
+	[
+		{
+			"Name":"Initial Gross Debt",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Funding",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Accrual of Interest",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Principal Amortization",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Interest Amortization",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Variation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Variation by buy/sale of company",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Foreign Exchange Variation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Variation by buy/sale of company (CONSOLIDATION)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Closing Balance Debt",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Closing Balance Debt",
+			"ComponentName":"Initial Gross Debt",
+			"Weight":1
+		},
+		{
+			"ParentName":"Closing Balance Debt",
+			"ComponentName":"Funding",
+			"Weight":1
+		},
+		{
+			"ParentName":"Closing Balance Debt",
+			"ComponentName":"Accrual of Interest",
+			"Weight":1
+		},
+		{
+			"ParentName":"Closing Balance Debt",
+			"ComponentName":"Principal Amortization",
+			"Weight":1
+		},
+		{
+			"ParentName":"Closing Balance Debt",
+			"ComponentName":"Interest Amortization",
+			"Weight":1
+		},
+		{
+			"ParentName":"Closing Balance Debt",
+			"ComponentName":"Other Variation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Closing Balance Debt",
+			"ComponentName":"Variation by buy/sale of company",
+			"Weight":1
+		},
+		{
+			"ParentName":"Closing Balance Debt",
+			"ComponentName":"Foreign Exchange Variation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Closing Balance Debt",
+			"ComponentName":"Variation by buy/sale of company (CONSOLIDATION)",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,123 @@
+# =============
+  SKIPCHECK;
+  FEEDSTRINGS;
+# =============
+
+
+# --------------------------------------------------------------------------------------------
+# Name Define versões calculadas
+# Desc A partir dessa regra só calcula para versões dinâmicas
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+[]=IF(ELISANC( 'ALL.D.Version', 'Dynamic Versions', !ALL.D.Version ) <> 0
+  ,CONTINUE
+  ,STET
+  ); 
+
+# --------------------------------------------------------------------------------------------
+#
+#                      			INICIO DO BLOCO CALCULOS RESULTADOS FINACEIROS
+#
+# --------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------
+# Name: Accrual of Interest (LC)
+# Desc: Accrual of Interest (LC)
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+['DFS.M.120.Financial_Results':'DFS.M.120.Financial_Results':'Value​','DFS.D.Accounts_Fin_Results':'DFS.D.Accounts_Fin_Results':'Accrual of Interest (LC)']=N:
+    DB('STG.100.DataBase_Uploads', 
+     !ALL.D.Year, 
+     !ALL.D.Month,
+     !ALL.D.Version,
+     !ALL.D.Currency,
+     !ALL.D.Region,
+     'ALL.D.Products':'Total Products',
+     'Accrual of Interest (LC)',
+      'ALL.D.Account_Line':'Total Accounts Line', 
+     'Value​'
+);
+# --------------------------------------------------------------------------------------------
+# Name: Accrual of Interest (LC)
+# Desc: Accrual of Interest (LC)
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+['DFS.M.120.Financial_Results':'DFS.M.120.Financial_Results':'Value​','DFS.D.Accounts_Fin_Results':'DFS.D.Accounts_Fin_Results':'Interest Expenses']=N:
+    DB('STG.100.DataBase_Uploads', 
+     !ALL.D.Year, 
+     !ALL.D.Month,
+     !ALL.D.Version,
+     !ALL.D.Currency,
+     !ALL.D.Region,
+     'ALL.D.Products':'Total Products',
+     'Interest Expenses',
+      'ALL.D.Account_Line':'Total Accounts Line', 
+     'Value​'
+);
+
+# --------------------------------------------------------------------------------------------
+# Name: Foreign Exchange Variation Over Cash
+# Desc: Foreign Exchange Variation Over Cash
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+['DFS.M.120.Financial_Results':'DFS.M.120.Financial_Results':'Value​','DFS.D.Accounts_Fin_Results':'DFS.D.Accounts_Fin_Results':'Foreign Exchange Variation Over Cash']=N:
+    DB('STG.100.DataBase_Uploads', 
+     !ALL.D.Year, 
+     !ALL.D.Month,
+     !ALL.D.Version,
+     !ALL.D.Currency,
+     !ALL.D.Region,
+     'ALL.D.Products':'Total Products',
+     'Foreign Exchange Cash Flow Impact',
+      'ALL.D.Account_Line':'Total Accounts Line', 
+     'Value​'
+);
+
+
+# --------------------------------------------------------------------------------------------
+# Name:Monetary Variation (LC)
+# Desc: Monetary Variation (LC)
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+['DFS.M.120.Financial_Results':'DFS.M.120.Financial_Results':'Value​','DFS.D.Accounts_Fin_Results':'DFS.D.Accounts_Fin_Results':'Monetary Variation (LC)']=N:
+    DB('STG.100.DataBase_Uploads', 
+     !ALL.D.Year, 
+     !ALL.D.Month,
+     !ALL.D.Version,
+     !ALL.D.Currency,
+     !ALL.D.Region,
+     'ALL.D.Products':'Total Products',
+     'Monetary Variation (LC)',
+      'ALL.D.Account_Line':'Total Accounts Line', 
+     'Value​'
+);
+# --------------------------------------------------------------------------------------------
+#
+#                      			INICIO DO BLOCO DE FEEDERS
+#
+# --------------------------------------------------------------------------------------------
+
+# =============
+  FEEDERS;
+# =============
+
+# --------------------------------------------------------------------------------------------
+# Name:tax on Sales
+# Desc: tax on Sales
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+ 
+# ['DFS.D.Accounts_PnL':'DFS.D.Accounts_PnL':'Net Revenue'
+# ]=>['DFS.D.Accounts_PnL':'DFS.D.Accounts_PnL':'Tax on Sales'];
+
+# ['DFS.D.Accounts_PnL':'DFS.D.Accounts_PnL':'Gross Revenue'
+# ]=>['DFS.D.Accounts_PnL':'DFS.D.Accounts_PnL':'Tax on Sales'];
+
+
+
+
