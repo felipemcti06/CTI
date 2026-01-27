@@ -1,0 +1,48 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"IsAutocalculate" : true,
+	"IsDeferComputeOnLeafDataEntry" : false,
+	"IsSuppressComputeOnOpen" : false,
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[ALL.D.Version].[ALL.D.Version]" : "Descrição"
+		},
+		"ContextSets" : 
+		{
+			"[ALL.D.Currency].[ALL.D.Currency]" : 
+			{
+				"Expression" : "{[ALL.D.Currency].[ALL.D.Currency].MEMBERS}"
+			},
+			"[ALL.D.Month].[ALL.D.Month]" : 
+			{
+				"Expression" : "{Descendants({[ALL.D.Month].[ALL.D.Month].[01]},1, SELF_AND_BEFORE)}"
+			},
+			"[ALL.D.Region].[ALL.D.Region]" : 
+			{
+				"Expression" : "{Descendants({[ALL.D.Region].[ALL.D.Region].[VCBR]},1, SELF_AND_BEFORE)}"
+			},
+			"[ALL.D.Version].[ALL.D.Version]" : 
+			{
+				"Expression" : "{DESCENDANTS({[ALL.D.Version].[ALL.D.Version].[T3]} , 1 , SELF_AND_BEFORE)}"
+			},
+			"[ALL.D.Year].[ALL.D.Year]" : 
+			{
+				"Expression" : "{Descendants({[ALL.D.Year].[ALL.D.Year].[2025]},1, SELF_AND_BEFORE)}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[ALL.D.Currency].[ALL.D.Currency]" : false,
+			"[ALL.D.Month].[ALL.D.Month]" : false,
+			"[ALL.D.Region].[ALL.D.Region]" : false,
+			"[ALL.D.Version].[ALL.D.Version]" : false,
+			"[ALL.D.Year].[ALL.D.Year]" : false,
+			"[DFS.D.Accounts_Fin_Results].[DFS.D.Accounts_Fin_Results]" : false,
+			"[DFS.M.120.Financial_Results].[DFS.M.120.Financial_Results]" : false
+		}
+	}
+}

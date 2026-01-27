@@ -1,0 +1,284 @@
+# =============
+  SKIPCHECK;
+  FEEDSTRINGS;
+# =============
+
+# --------------------------------------------------------------------------------------------
+# Name Define versões calculadas
+# Desc A partir dessa regra só calcula para versões dinâmicas
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+[]=IF(ELISANC( 'ALL.D.Version', 'Dynamic Versions', !ALL.D.Version ) <> 0
+  ,CONTINUE
+  ,STET
+  ); 
+
+
+# --------------------------------------------------------------------------------------------
+# Name: Conversão de Moedas
+# Desc: Conversão de moedas para os padrões USD, BRL e EUR
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+ # ['ALL.D.Currency':'ALL.D.Currency':'USD Conv.'] = N:
+ # ['ALL.D.Currency':'ALL.D.Currency':'USD']
+ #    +
+ # ['ALL.D.Currency':'ALL.D.Currency':'BRL'] * DB( 'ALL.010.Economic_Assumptions', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, 'Average FX Rate R$/US$', 'Value' )
+ #    +
+ #  ['ALL.D.Currency':'ALL.D.Currency':'UYU'] * DB( 'ALL.010.Economic_Assumptions', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, 'Câmbio Inicial UYU$/US$', 'Value' );
+
+
+
+
+   
+
+
+
+# --------------------------------------------------------------------------------------------
+#
+#                      			INICIO DO BLOCO DE FEEDERS
+#
+# --------------------------------------------------------------------------------------------
+
+# =============
+  FEEDERS;
+# =============
+
+
+# --------------------------------------------------------------------------------------------
+#                      			BLOCO DE FEEDERS EXTERNOS
+# --------------------------------------------------------------------------------------------
+
+###############################################################
+#-------------------------------------# REV.100#-----------------------------------------
+###############################################################
+# --------------------------------------------------------------------------------------------
+# Name: Reference Price [$/ton]
+# Desc:Reference Price [$/ton]
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Reference Price [$/ton]' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'N/A'
+]=> DB( 'REV.100.Revenue_Consolidated', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, !ALL.D.Products, 'Domestic', 'Reference Price [$/ton]​' );
+
+    
+# --------------------------------------------------------------------------------------------
+# Name: Sales Volume [kt]
+# Desc:Sales Volume [kt]
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Local Market Sales Volume [kt]' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'N/A'
+]=> DB( 'REV.100.Revenue_Consolidated', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, !ALL.D.Products, 'Domestic', 'Sales Volume [kt]​' );
+    
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Export Market Sales Volume [kt]' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'N/A'
+]=> DB( 'REV.100.Revenue_Consolidated', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, !ALL.D.Products, 'Export', 'Sales Volume [kt]​' );
+
+# --------------------------------------------------------------------------------------------
+# Name: Third Part Sales Volume [kt]
+# Desc:Third Part Sales Volume [kt]
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------    
+
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Third Part Sales Volume [kt]' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'N/A'
+]=> DB( 'REV.100.Revenue_Consolidated', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, !ALL.D.Products, 'Domestic', 'Third Part Sales Volume [kt]' );
+
+
+# --------------------------------------------------------------------------------------------
+# Name: Price Premium [$/ton]
+# Desc:Price Premium [$/ton]
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Local Market Price Premium [$/ton]' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'N/A'
+]=> DB( 'REV.100.Revenue_Consolidated', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, !ALL.D.Products, 'Domestic', 'Price Premium [$/ton]​' );
+    
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Export Market Price Premium [$/ton]' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'N/A'
+]=> DB( 'REV.100.Revenue_Consolidated', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, !ALL.D.Products, 'Export',  'Price Premium [$/ton]​' );
+
+###############################################################
+#-------------------------------------# DFS.100#-----------------------------------------
+###############################################################
+
+
+# --------------------------------------------------------------------------------------------
+# Name: Final Variable Sales Expenses
+# Desc:Final Variable Sales Expenses
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------    
+
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Final Variable Sales Expenses' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'Total Accounts Line'
+]=> DB( 'DFS.100.Profit_and_Loss', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, !ALL.D.Products, 'Variable Selling Expenses', 'Value' );
+
+# --------------------------------------------------------------------------------------------
+# Name: Variable Costs
+# Desc:Variable Costs
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------    
+
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Other Variable Costs' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'Total Accounts Line'
+]=> DB( 'DFS.100.Profit_and_Loss', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, !ALL.D.Products, 'Variable Costs', 'Value' );
+
+# --------------------------------------------------------------------------------------------
+# Name: Fixed Costs'
+# Desc:Fixed Costs'
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------    
+
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Fixed Costs' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'Total Accounts Line'
+]=> DB( 'DFS.100.Profit_and_Loss', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, !ALL.D.Products, 'Fixed Costs', 'Value' );
+
+# --------------------------------------------------------------------------------------------
+# Name: Depreciation / amortization / depletion - Corporate'
+# Desc:FDepreciation / amortization / depletion - Corporate
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------    
+
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Depreciation / amortization / depletion - Corporate' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'Total Accounts Line'
+]=> DB( 'DFS.100.Profit_and_Loss', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, !ALL.D.Products, 'Depreciation', 'Value' );
+
+
+# --------------------------------------------------------------------------------------------
+# Name: Operating Expenses
+# Desc:Operating Expenses
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------    
+
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Operating Expenses' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'Total Accounts Line'
+]=> DB( 'DFS.100.Profit_and_Loss', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, !ALL.D.Products, 'Operational Expenses', 'Value' );
+
+# --------------------------------------------------------------------------------------------
+# Name:Other
+# Desc:Other
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------    
+
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Other' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'Total Accounts Line'
+]=> DB( 'DFS.100.Profit_and_Loss', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, !ALL.D.Products, 'Other Op. Results', 'Value' );
+
+
+
+###############################################################
+#-------------------------------------# DFS.120#-----------------------------------------
+###############################################################
+# --------------------------------------------------------------------------------------------
+
+
+# --------------------------------------------------------------------------------------------
+# Name:Accrual of Interest (LC)
+# Desc:Accrual of Interest (LC)
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------    
+
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Accrual of Interest (LC)' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'Total Accounts Line',
+ 'ALL.D.Products':'ALL.D.Products':'Total Products'
+]=> DB( 'DFS.120.Financial​_Results', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, 'Accrual of Interest (LC)', 'Value​' );
+
+# --------------------------------------------------------------------------------------------
+# Name:Interest Expenses
+# Desc:Interest Expenses
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------    
+
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Interest Expenses' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'Total Accounts Line',
+ 'ALL.D.Products':'ALL.D.Products':'Total Products'
+]=> DB( 'DFS.120.Financial​_Results', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, 'Interest Expenses', 'Value​' );
+
+# --------------------------------------------------------------------------------------------
+# Name:Foreign Exchange Cash Flow Impact'
+# Desc:Foreign Exchange Cash Flow Impact'
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------    
+
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Foreign Exchange Cash Flow Impact' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'Total Accounts Line',
+ 'ALL.D.Products':'ALL.D.Products':'Total Products'
+]=> DB( 'DFS.120.Financial​_Results', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, 'Foreign Exchange Variation Over Cash', 'Value​' );
+
+
+
+# --------------------------------------------------------------------------------------------
+# Name:Monetary Variation (LC)
+# Desc:Monetary Variation (LC)
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------    
+
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Monetary Variation (LC)' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'Total Accounts Line',
+ 'ALL.D.Products':'ALL.D.Products':'Total Products'
+]=> DB( 'DFS.120.Financial​_Results', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, 'Monetary Variation (LC)', 'Value​' );
+
+
+
+###############################################################
+#-------------------------------------# DFS.180#-----------------------------------------
+###############################################################
+# --------------------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------------------
+# Name:Funding (LC)
+# Desc:Funding (LC)
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------    
+
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Funding (LC)' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'Total Accounts Line',
+ 'ALL.D.Products':'ALL.D.Products':'Total Products'
+]=> DB( 'DFS.180.Gross_Debt', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, 'Funding', 'Value' );
+
+# --------------------------------------------------------------------------------------------
+# Name:Accrual of Interest (LC)'
+# Desc:Accrual of Interest (LC)'
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------    
+
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Accrual of Interest (LC)' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'Total Accounts Line',
+ 'ALL.D.Products':'ALL.D.Products':'Total Products'
+]=> DB( 'DFS.180.Gross_Debt', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, 'Accrual of Interest', 'Value' );
+
+
+# --------------------------------------------------------------------------------------------
+# Name:Principal Amortization (LC)
+# Desc:Principal Amortization (LC)
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------    
+
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Principal Amortization (LC)' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'Total Accounts Line',
+ 'ALL.D.Products':'ALL.D.Products':'Total Products'
+]=> DB( 'DFS.180.Gross_Debt', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, 'Principal Amortization', 'Value' );
+
+
+# --------------------------------------------------------------------------------------------
+# Name:Interest Amortization (LC)
+# Desc:Interest Amortization (LC)
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------    
+
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Interest Amortization (LC)' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'Total Accounts Line',
+ 'ALL.D.Products':'ALL.D.Products':'Total Products'
+]=> DB( 'DFS.180.Gross_Debt', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, 'Interest Amortization', 'Value' );
+
+
+# --------------------------------------------------------------------------------------------
+# Name:Other Variation (LC)
+# Desc:Other Variation (LC)
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------    
+
+['STG.M.100.DataBaseUploads':'STG.M.100.DataBaseUploads':'Value​' , 'ALL.D.Accounts':'ALL.D.Accounts':'Other Variation (LC)' , 'ALL.D.Account_Line':'ALL.D.Account_Line':'Total Accounts Line',
+ 'ALL.D.Products':'ALL.D.Products':'Total Products'
+]=> DB( 'DFS.180.Gross_Debt', !ALL.D.Year, !ALL.D.Month, !ALL.D.Version, !ALL.D.Currency, !ALL.D.Region, 'Other Variation', 'Value' );

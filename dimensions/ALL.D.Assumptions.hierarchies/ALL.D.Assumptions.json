@@ -1,0 +1,68 @@
+{
+	"@type":"Hierarchy",
+	"Name":"ALL.D.Assumptions",
+	"Elements":
+	[
+		{
+			"Name":"Begining FX Rate R$/US$",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Average FX Rate R$/US$",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Final FX Rate R$/US$",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Begining FX Rate  US$/EUR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Average FX Rate US$/EUR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Final FX Rate US$/EUR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Câmbio Inicial UYU$/US$",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Câmbio Médio UYU$/US$",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Câmbio Final UYU$/US$",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Câmbio Inicial ARS$/US$",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Câmbio Médio ARS$/US$",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Câmbio Final ARS$/US$",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Brazilian CPI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"American CPI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Number of Days",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,28 @@
+{
+	"@type":"Hierarchy",
+	"Name":"ALL.D.Currency",
+	"Elements":
+	[
+		{
+			"Name":"USD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"BRL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EUR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UYU",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"USD Conv.",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

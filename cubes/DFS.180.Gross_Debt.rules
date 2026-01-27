@@ -1,0 +1,144 @@
+# =============
+  SKIPCHECK;
+  FEEDSTRINGS;
+# =============
+
+
+# --------------------------------------------------------------------------------------------
+# Name Define versões calculadas
+# Desc A partir dessa regra só calcula para versões dinâmicas
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+[]=IF(ELISANC( 'ALL.D.Version', 'Dynamic Versions', !ALL.D.Version ) <> 0
+  ,CONTINUE
+  ,STET
+  ); 
+
+# --------------------------------------------------------------------------------------------
+#
+#                      			INICIO DO BLOCO CALCULOS DÍVIDA
+#
+# --------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------
+# Name: Funding
+# Desc: Funding
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+['DFS.M.180.Gross_Debt':'DFS.M.180.Gross_Debt':'Value' , 'DFS.D.Accounts_Debt':'DFS.D.Accounts_Debt':'Funding']=N:
+    DB('STG.100.DataBase_Uploads', 
+     !ALL.D.Year, 
+     !ALL.D.Month,
+     !ALL.D.Version,
+     !ALL.D.Currency,
+     !ALL.D.Region,
+     'ALL.D.Products':'Total Products',
+     'Funding (LC)',
+      'ALL.D.Account_Line':'Total Accounts Line', 
+     'Value​'
+);
+
+# --------------------------------------------------------------------------------------------
+# Name:Accrual of Interest
+# Desc: Accrual of Interest
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+['DFS.M.180.Gross_Debt':'DFS.M.180.Gross_Debt':'Value' , 'DFS.D.Accounts_Debt':'DFS.D.Accounts_Debt':'Accrual of Interest']=N:
+    DB('STG.100.DataBase_Uploads', 
+     !ALL.D.Year, 
+     !ALL.D.Month,
+     !ALL.D.Version,
+     !ALL.D.Currency,
+     !ALL.D.Region,
+     'ALL.D.Products':'Total Products',
+     'Accrual of Interest (LC)',
+      'ALL.D.Account_Line':'Total Accounts Line', 
+     'Value​'
+);
+
+# --------------------------------------------------------------------------------------------
+# Name:Principal Amortization
+# Desc:Principal Amortization
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+['DFS.M.180.Gross_Debt':'DFS.M.180.Gross_Debt':'Value' , 'DFS.D.Accounts_Debt':'DFS.D.Accounts_Debt':'Principal Amortization']=N:
+    DB('STG.100.DataBase_Uploads', 
+     !ALL.D.Year, 
+     !ALL.D.Month,
+     !ALL.D.Version,
+     !ALL.D.Currency,
+     !ALL.D.Region,
+     'ALL.D.Products':'Total Products',
+     'Principal Amortization (LC)',
+      'ALL.D.Account_Line':'Total Accounts Line', 
+     'Value​'
+);
+
+
+# --------------------------------------------------------------------------------------------
+# Name:Interest Amortization
+# Desc:Interest Amortization
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+['DFS.M.180.Gross_Debt':'DFS.M.180.Gross_Debt':'Value' , 'DFS.D.Accounts_Debt':'DFS.D.Accounts_Debt':'Interest Amortization']=N:
+    DB('STG.100.DataBase_Uploads', 
+     !ALL.D.Year, 
+     !ALL.D.Month,
+     !ALL.D.Version,
+     !ALL.D.Currency,
+     !ALL.D.Region,
+     'ALL.D.Products':'Total Products',
+     'Interest Amortization (LC)',
+      'ALL.D.Account_Line':'Total Accounts Line', 
+     'Value​'
+);
+
+
+# --------------------------------------------------------------------------------------------
+# Name:Other Variation
+# Desc:Other Variation
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+['DFS.M.180.Gross_Debt':'DFS.M.180.Gross_Debt':'Value' , 'DFS.D.Accounts_Debt':'DFS.D.Accounts_Debt':'Other Variation']=N:
+    DB('STG.100.DataBase_Uploads', 
+     !ALL.D.Year, 
+     !ALL.D.Month,
+     !ALL.D.Version,
+     !ALL.D.Currency,
+     !ALL.D.Region,
+     'ALL.D.Products':'Total Products',
+     'Other Variation (LC)',
+      'ALL.D.Account_Line':'Total Accounts Line', 
+     'Value​'
+);
+# --------------------------------------------------------------------------------------------
+#
+#                      			INICIO DO BLOCO DE FEEDERS
+#
+# --------------------------------------------------------------------------------------------
+
+# =============
+  FEEDERS;
+# =============
+
+# --------------------------------------------------------------------------------------------
+# Name:tax on Sales
+# Desc: tax on Sales
+# Date 01/2026
+# Author: Miranda / Helder
+# --------------------------------------------------------------------------------------------
+ 
+# ['DFS.D.Accounts_PnL':'DFS.D.Accounts_PnL':'Net Revenue'
+# ]=>['DFS.D.Accounts_PnL':'DFS.D.Accounts_PnL':'Tax on Sales'];
+
+# ['DFS.D.Accounts_PnL':'DFS.D.Accounts_PnL':'Gross Revenue'
+# ]=>['DFS.D.Accounts_PnL':'DFS.D.Accounts_PnL':'Tax on Sales'];
+
+
+
+
