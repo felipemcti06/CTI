@@ -1,0 +1,36 @@
+{
+	"@type":"Process",
+	"Name":"COS.400.00.Carrega_COS.400.CustoHD",
+	"UID":"1751393338000",
+	"HasSecurityAccess":false,
+	"Code":"#region Prolog\r\n\r\n\r\nExecuteProcess('COS.400.01.From_STG.080.AgendaHub',\r\n\t'pAno', pAno,\r\n\t'pMes', pMes,\r\n\t'pVersao', pVersao ) ;\r\n\r\nExecuteProcess( 'COS.400.02.From_STG.070.CustoPessoal',\r\n  \t'pAno', pAno,\r\n  \t'pMes', pMes,\r\n  \t'pVersao', pVersao );\r\n\r\n#endregion",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pAno",
+			"Prompt":"",
+			"Value":"2025",
+			"Type":"String"
+		},
+		{
+			"Name":"pMes",
+			"Prompt":"",
+			"Value":"01",
+			"Type":"String"
+		},
+		{
+			"Name":"pVersao",
+			"Prompt":"",
+			"Value":"Real",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "1751393338000",
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}
